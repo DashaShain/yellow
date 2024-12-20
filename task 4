@@ -1,0 +1,15 @@
+def task_4(s):
+    mx = 0
+
+    for i in range(len(s)):
+        arr=[]
+        
+        for j in range(i, len(s)):
+            if s[j] in arr:
+                break
+
+            else:
+                mx = max(mx, j - i + 1)
+                arr.append(s[j])
+
+    return mx
