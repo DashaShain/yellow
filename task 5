@@ -1,0 +1,31 @@
+class Solution(object):
+    def getIntersectionNode(self, headA, headB):
+        mirror_A = headA
+        mirror_B = headB
+        count_b, count_a = 0, 0
+        
+        while mirror_A:
+            mirror_A = mirror_A.next
+            count_a += 1
+        
+        while mirror_B:
+            mirror_B = mirror_B.next
+            count_b += 1
+        
+        if count_a > count_b:
+            count_a -= count_b
+            while count_a:
+                count_a -= 1
+                headA = headA.next
+        elif count_a < count_b:
+            count_b -= count_a
+            while count_b:
+                count_b -= 1
+                headB = headB.next
+        
+
+        while headA != headB:
+            headA = headA.next
+            headB = headB.next
+
+        return headA
