@@ -1,0 +1,16 @@
+def rec(n):
+    if not n:
+        return 0
+    
+    return (n%10)**2+rec(n//10)
+
+def task1(n):
+    arr = []
+    while n>1:
+        if n in arr:
+            return False
+
+        arr.append(n)
+        n=rec(n)
+    
+    return True
